@@ -5,20 +5,16 @@ import {
 } from "react-router-dom";
 import './index.css'
 import router from './routes/Routes';
+// import AuthProvider from './providers/AuthProvider';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  <div className='max-w-6xl mx-auto'>
+    <React.StrictMode>
+      {/* <AuthProvider> */}
         <RouterProvider router={router} />
-  </React.StrictMode>
+      {/* </AuthProvider> */}
+    </React.StrictMode>
+  </div>
 )
 
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import { RouterProvider } from "react-router-dom";
-// import './index.css';
 
-// ReactDOM.createRoot(document.getElementById('root')).render(
-//   <React.StrictMode>
-//     <RouterProvider router={router} />
-//   </React.StrictMode>
-// );

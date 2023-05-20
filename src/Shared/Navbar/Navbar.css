@@ -1,0 +1,10 @@
+
+.nav-link {
+    color: white;
+  }
+  
+  .nav-link.active {
+    text-decoration: underline;
+    font-weight: bolder;
+  }
+  
