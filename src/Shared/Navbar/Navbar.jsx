@@ -12,7 +12,13 @@ const Navbar = () => {
         <li className="font-semibold"><Link>Blogs</Link></li>
     </>
 
-    const { user } = useContext(AuthContext);
+    const { user, logout } = useContext(AuthContext);
+
+    const handleLogout = () => {
+        logout()
+        .then()
+        .catch(error => console.log(error))
+    }
 
     return (
         <div className="navbar">
@@ -38,9 +44,9 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
                 {user && <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>}
-                <Link href="#deets" className="text-white">{user.displayName}</Link>
+                {/* <Link href="#deets" className="text-white">{user.displayName}</Link> */}
                 {user ?
-                    <button className="btn btn-info">Logout</button> :
+                    <button onClick={handleLogout} className="btn btn-info">Logout</button> :
                     <Link to='/'>
                         <button className="btn btn-info">Login</button>
                     </Link>
