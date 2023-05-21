@@ -1,0 +1,71 @@
+{
+    "tabs": [
+      {
+        "id": "tab1",
+        "name": "Tab 1",
+        "toys": [
+          {
+            "id": "toy1",
+            "picture": "./battleBot-1.jpg",
+            "name": "Toy 1",
+            "price": "$19.99",
+            "rating": 4.5,
+            "details": "View Details"
+          },
+          {
+            "id": "toy2",
+            "picture": "./battleBot2.jpg",
+            "name": "Toy 2",
+            "price": "$24.99",
+            "rating": 4.2,
+            "details": "View Details"
+          }
+        ]
+      },
+      {
+        "id": "tab2",
+        "name": "Tab 2",
+        "toys": [
+          {
+            "id": "toy3",
+            "picture": "./battleBot3.jpg",
+            "name": "Toy 3",
+            "price": "$14.99",
+            "rating": 4.0,
+            "details": "View Details"
+          },
+          {
+            "id": "toy4",
+            "picture": "toy4.jpg",
+            "name": "Toy 4",
+            "price": "$29.99",
+            "rating": 4.8,
+            "details": "View Details"
+          }
+        ]
+      },
+      {
+        "id": "tab3",
+        "name": "Tab 3",
+        "toys": [
+          {
+            "id": "toy5",
+            "picture": "toy5.jpg",
+            "name": "Toy 5",
+            "price": "$9.99",
+            "rating": 3.7,
+            "details": "View Details"
+          },
+          {
+            "id": "toy6",
+            "picture": "toy6.jpg",
+            "name": "Toy 6",
+            "price": "$34.99",
+            "rating": 4.6,
+            "details": "View Details"
+          }
+        ]
+      }
+    ]
+  }
+  

@@ -6,6 +6,8 @@ import Register from "../Login/Register";
 import AddToyPage from "../AddToy/AddToy";
 import Blog from "../Blogs/Blogs";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
+import SingleToy from "../Toy/Toy";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,11 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home></Home>
+      },
+      {
+        path: '/toys/:id',
+        element: <PrivateRoute><SingleToy></SingleToy></PrivateRoute>,
+        loader: ({params}) => fetch(`https://assignment-11-alpha.vercel.app/toys/${params.id}`)
       },
       {
         path: "/login",
