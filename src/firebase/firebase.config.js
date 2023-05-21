@@ -4,13 +4,15 @@ import { initializeApp } from "firebase/app";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
+console.log('environment variable', import.meta.env.VITE_apiKey)
 const firebaseConfig = {
-  apiKey: "AIzaSyBY2EOCiXu7lUdxchF5kZwRZdZmonRRlGE",
-  authDomain: "roboplayground-cbc31.firebaseapp.com",
-  projectId: "roboplayground-cbc31",
-  storageBucket: "roboplayground-cbc31.appspot.com",
-  messagingSenderId: "131927687157",
-  appId: "1:131927687157:web:e0f7f5f34576fbdffc6abc"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId
 };
 
 // Initialize Firebase
