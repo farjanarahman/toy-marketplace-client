@@ -1,10 +1,16 @@
 import Banner from '../Banner/Banner';
+import GallerySection from '../../../Gallery/Gallery';
+import Category from '../../../Category/Category';
+import useTitle from '../../../hooks/useTitle';
 
 const Home = () => {
+    useTitle('Home');
+
     return (
         <div>
-            <Banner></Banner>
-            <h2>This is my home</h2>
+            <Banner />
+            <GallerySection />
+            <Category />
         </div>
     );
 };

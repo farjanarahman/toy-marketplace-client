@@ -9,7 +9,7 @@ const Banner = () => {
                     <p>Explore a world of robotic wonders! Find the perfect robot companion for endless fun.</p>
                     <button className="btn btn-warning mt-5">Explore</button>
                 </div>
-                <div className="w-1/2">
+                <div className="w-1/2 flex justify-around">
                     <img className="h-80" src={banner} alt="Banner" />
                 </div>
             </div>

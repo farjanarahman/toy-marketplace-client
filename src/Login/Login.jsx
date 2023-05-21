@@ -1,13 +1,12 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
+import useTitle from '../hooks/useTitle';
 
 const LoginForm = () => {
-    //   const [email, setEmail] = useState('');
-    //   const [password, setPassword] = useState('');
-
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
+    useTitle('Login');
 
     const handleLogin = event => {
         event.preventDefault();
@@ -16,25 +15,20 @@ const LoginForm = () => {
         const password = form.password.value;
         console.log(email, password);
 
-    signIn(email, password)
-        .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-            navigate('/')
-        })
-        .catch(error => {
-            console.log(error);
-        })
-    }
-    //   const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     // TODO: Handle login logic
-    //     // You can use the email and password state variables for authentication
-    //   };
+        signIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                navigate('/');
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    };
 
     return (
         <div className="max-w-md mx-auto">
-            <h2 className=" text-center text-2xl font-bold mb-4">Please Login</h2>
+            <h2 className="text-center text-2xl font-bold mb-4">Please Login</h2>
             <form onSubmit={handleLogin} className="space-y-4">
                 <div className="form-control">
                     <label htmlFor="email" className="label">
