@@ -1,11 +1,19 @@
 import { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../providers/AuthProvider';
 import useTitle from '../hooks/useTitle';
+import app from '../firebase/firebase.config';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
 const LoginForm = () => {
     const { signIn } = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+    console.log('Login page location', location)
+    const from = location.state?.from?.pathname || '/';
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider()
+
     useTitle('Login');
 
     const handleLogin = event => {
@@ -19,12 +27,22 @@ const LoginForm = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                navigate('/');
+                navigate(from, {replace: true});
             })
             .catch(error => {
                 console.log(error);
             });
     };
+    const handleGoogleSignIn = () => {
+        signInWithPopup(auth,provider)
+        .then(result => {
+          const user = result.user;
+          console.log(user);
+        })
+        .catch(error =>{
+          console.log(error.message);
+        })
+      }
 
     return (
         <div className="max-w-md mx-auto">
@@ -59,9 +77,9 @@ const LoginForm = () => {
                     Login
                 </button>
                 <br />
-                <p className='text-center'>Don't have an account? <Link to='/register' className='text-blue-700'>Register</Link></p>
-                <button>Login With Google</button>
             </form>
+            <button className='btn btn-primary ms-32 mt-5' onClick={handleGoogleSignIn} type='submit'>Login With Google</button>
+            <p className='text-center mt-5'>Don't have an account? <Link to='/register' className='text-blue-700'>Register</Link></p>
         </div>
     );
 };

@@ -7,11 +7,11 @@ import { AuthContext } from "../../providers/AuthProvider";
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
 
-  const handleLogout = () => {
+  const handleLogout = () => [
     logout()
       .then()
-      .catch(error => console.log(error));
-  };
+      .catch(error => console.log(error))
+   ]
 
   const navItems = (
     <>
@@ -49,16 +49,13 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user && <FaUserCircle style={{ fontSize: '2rem' }} />}
-        {user ? (
-          <>
-            {/* <Link href="#deets" className="text-white">{user.displayName}</Link> */}
+        {user ? 
             <button onClick={handleLogout} className="btn btn-info">Logout</button>
-          </>
-        ) : (
-          <Link to='/'>
+         : 
+          <Link to='/login'>
             <button className="btn btn-info">Login</button>
           </Link>
-        )}
+        }
       </div>
     </div>
   );
