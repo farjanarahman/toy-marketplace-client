@@ -1,46 +1,87 @@
 import { useState } from "react";
 import Tab1 from "./Tab1";
-import { useLoaderData } from "remix";
-
 
 function Tabs() {
   const [toggleState, setToggleState] = useState(1);
-  const data = useLoaderData();
 
   const toggleTab = (index) => {
     setToggleState(index);
   };
 
   return (
-    <div className="container mx-auto py-8">
-      <h2 className="text-2xl font-bold text-center mb-5">Shop By Category</h2>
-      <div className="flex justify-center space-x-4 mb-4">
-        {data.tabs.map((tab, index) => (
+    <div>
+      <h3 className="text-center font-bold">Shop By Category</h3>
+      <div className="mt-5 container mx-auto">
+        <div className="flex justify-center">
           <button
-            key={tab.id}
-            className={`py-2 px-4 ${
-              toggleState === index + 1 ? "bg-blue-500 text-white" : "bg-gray-200"
+            className={`mr-2 py-2 px-4 rounded ${
+              toggleState === 1 ? "bg-blue-500 text-white" : "bg-gray-200"
             }`}
-            onClick={() => toggleTab(index + 1)}
+            onClick={() => toggleTab(1)}
           >
-            {tab.name}
+            Remote Controlled Robot
           </button>
-        ))}
-      </div>
-
-      <div className="bg-white p-4 mt-4">
-        {data.tabs.map((tab, index) => (
-          <div
-            key={tab.id}
-            className={`${toggleState === index + 1 ? "block" : "hidden"}`}
+          <button
+            className={`mr-2 py-2 px-4 rounded ${
+              toggleState === 2 ? "bg-blue-500 text-white" : "bg-gray-200"
+            }`}
+            onClick={() => toggleTab(2)}
           >
-            <h2 className="text-xl font-bold mb-2 text-center">{tab.name}</h2>
-            <hr className="w-16 border-2 border-black mb-2" />
-            {tab.toys.map((toy) => (
-              <Tab1 key={toy.id} item={toy} />
-            ))}
+            Dog Robot
+          </button>
+          <button
+            className={`mr-2 py-2 px-4 rounded ${
+              toggleState === 3 ? "bg-blue-500 text-white" : "bg-gray-200"
+            }`}
+            onClick={() => toggleTab(3)}
+          >
+            Tab 3
+          </button>
+        </div>
+
+        <div className="mt-4">
+          <div
+            className={`${
+              toggleState === 1 ? "block" : "hidden"
+            } bg-white rounded-lg p-4`}
+          >
+            <h2 className="text-2xl font-bold">Remote Controlled Robot</h2>
+            <hr className="my-4" />
+            <p>
+              <Tab1></Tab1>
+            </p>
           </div>
-        ))}
+
+          <div
+            className={`${
+              toggleState === 2 ? "block" : "hidden"
+            } bg-white rounded-lg p-4`}
+          >
+            <h2 className="text-2xl font-bold">Dog Robot</h2>
+            <hr className="my-4" />
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
+              voluptatum qui adipisci.
+            </p>
+          </div>
+
+          <div
+            className={`${
+              toggleState === 3 ? "block" : "hidden"
+            } bg-white rounded-lg p-4`}
+          >
+            <h2 className="text-2xl font-bold">Content 3</h2>
+            <hr className="my-4" />
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos sed
+              nostrum rerum laudantium totam unde adipisci incidunt modi alias!
+              Accusamus in quia odit aspernatur provident et ad vel distinctio
+              recusandae totam quidem repudiandae omnis veritatis nostrum
+              laboriosam architecto optio rem, dignissimos voluptatum beatae
+              aperiam voluptatem atque. Beatae rerum dolores sunt.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );

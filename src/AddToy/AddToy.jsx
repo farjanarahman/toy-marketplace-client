@@ -15,8 +15,6 @@ const AddToyPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: Handle form submission logic
-    // You can access the form field values from the state variables above
   };
 
   return (

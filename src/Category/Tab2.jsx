@@ -1,4 +1,21 @@
 import React, { useEffect, useState } from 'react';
+
+const Tab2 = () => {
+    const [dog, setDog] = useState([]);
+
+    useEffect
+    return (
+        <div>
+            
+        </div>
+    );
+};
+
+export default Tab2;
+
+
+
+import React, { useEffect, useState } from 'react';
 import Remote from './RemoteCard';
 
 const Tab1 = () => {
