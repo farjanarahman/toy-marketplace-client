@@ -1,46 +1,27 @@
 import React, { useEffect, useState } from 'react';
+import DogCard from './DogCard';
 
 const Tab2 = () => {
     const [dog, setDog] = useState([]);
 
-    useEffect
-    return (
-        <div>
-            
-        </div>
-    );
-};
-
-export default Tab2;
-
-
-
-import React, { useEffect, useState } from 'react';
-import Remote from './RemoteCard';
-
-const Tab1 = () => {
-    // conts remote = () => {
-    const [remote, setRemote] = useState([]);
-
     useEffect(() => {
         fetch('category.json')
-            .then(res => res.json())
-            .then(data => setRemote(data));
+        .then(res => res.json())
+        .then(data => setDog(data));
     }, [])
-
     return (
         <div>
             {
-                remote.map(remote => <Remote
-                    key={remote._id}
-                    remote={remote}
-                ></Remote>)
+                dog.map(dog => <DogCard
+                    key={dog._id}
+                    dog={dog}
+                ></DogCard>)
             }
         </div>
     );
 };
 
-export default Tab1;
+export default Tab2;
 
 
 

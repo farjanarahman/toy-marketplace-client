@@ -19,11 +19,9 @@ const Remote = ({ remote }) => {
                 </div>
             )}
      </div>
-        </>
-    
+        </>  
     );
-};
-        
+};    
 export default Remote;
 
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Remote from './RemoteCard';
+// import Remote from './RemoteCard';
 
 const Tab1 = () => {
     // conts remote = () => {
@@ -11,16 +11,30 @@ const Tab1 = () => {
             .then(data => setRemote(data));
     }, [])
 
+    const T1 = remote.find(({name}) => name === 'Tab_1');
+    const { toys } = T1;
+
     return (
         <div>
-            {
-                remote.map(remote => <Remote
-                    key={remote._id}
-                    remote={remote}
-                ></Remote>)
-            }
+    {
+      toys && toys.map(toy =>
+        <div>
+          <div className="card w-96 bg-base-100 shadow-xl">
+            <figure><img src={toy.picture} alt="Shoes" /></figure>
+            <div className="card-body">
+              <h2 className="card-title">{toy.name}</h2>
+              <p>{toy.price}</p>
+              <p>{toy.rating}</p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary">View Details</button>
+              </div>
+            </div>
+          </div>
         </div>
-    );
+      )
+    }
+  </div>  
+    );               
 };
 
 export default Tab1;
@@ -29,3 +43,16 @@ export default Tab1;
 
 
 
+
+
+
+
+
+
+
+{/* {
+                remote.map(remote => <Remote
+                    key={remote._id}
+                    remote={remote}
+                ></Remote>)
+            } */}

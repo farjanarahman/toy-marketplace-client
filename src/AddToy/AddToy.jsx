@@ -1,8 +1,47 @@
 import { useState } from 'react';
 import useTitle from '../hooks/useTitle';
+import Swal from 'sweetalert2'
 
 const AddToyPage = () => {
   useTitle('Add A Toy')
+  const handleAddToy = event => {
+    event.preventDefault();
+
+    const form = event.target;
+
+    const name = form.name.value;
+    const pictureUrl = form.pictureUrl.value;
+    const sellerName = form.sellerName.value;
+    const sellerEmail = form.sellerEmail.value;
+    const subCategory = form.subCategory.value;
+    const price = form.price.value;
+    const quantity = form.quantity.value;
+    const description = form.description.value;
+
+    const newToy = { name, sellerName, sellerEmail, subCategory, price, quantity, description, pictureUrl }
+    console.log(newToy)
+
+    //send data to the server
+    fetch('http://localhost:5000/toy', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify(newToy)
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        if(data.insertedId){
+          Swal.fire({
+            title: 'Success!',
+            text: 'Added successfully',
+            icon: 'success',
+            confirmButtonText: 'Cool'
+          })
+        }
+      })
+  }
   const [pictureUrl, setPictureUrl] = useState('');
   const [name, setName] = useState('');
   const [sellerName, setSellerName] = useState('');
@@ -13,14 +52,10 @@ const AddToyPage = () => {
   const [quantity, setQuantity] = useState('');
   const [description, setDescription] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
   return (
     <div className="max-w-md mx-auto">
       <h2 className="text-2xl font-bold mb-4 text-center">Add a Toy</h2>
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form onSubmit={handleAddToy} className="space-y-4">
         <div className="form-control">
           <label htmlFor="pictureUrl" className="label">
             Picture URL
@@ -106,52 +141,52 @@ const AddToyPage = () => {
         </div>
         <div className="form-control">
           <label htmlFor="rating" className="label">
-          Rating
-        </label>
-        <input
-          type="number"
-          id="rating"
-          value={rating}
-          onChange={(e) => setRating(e.target.value)}
-          className="input input-bordered"
-          placeholder="Enter the rating of the toy"
-          required
-        />
-      </div>
-      <div className="form-control">
-        <label htmlFor="quantity" className="label">
-          Available Quantity
-        </label>
-        <input
-          type="number"
-          id="quantity"
-          value={quantity}
-          onChange={(e) => setQuantity(e.target.value)}
-          className="input input-bordered"
-          placeholder="Enter the available quantity of the toy"
-          required
-        />
-      </div>
-      <div className="form-control">
-        <label htmlFor="description" className="label">
-          Description
-        </label>
-        <textarea
-          id="description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          className="input input-bordered"
-          placeholder="Enter a detailed description of the toy"
-          rows="5"
-          required
-        ></textarea>
-      </div>
-      <button type="submit" className="btn btn-primary w-full">
-        Add Toy
-      </button>
-    </form>
-  </div>
-);
+            Rating
+          </label>
+          <input
+            type="number"
+            id="rating"
+            value={rating}
+            onChange={(e) => setRating(e.target.value)}
+            className="input input-bordered"
+            placeholder="Enter the rating of the toy"
+            required
+          />
+        </div>
+        <div className="form-control">
+          <label htmlFor="quantity" className="label">
+            Available Quantity
+          </label>
+          <input
+            type="number"
+            id="quantity"
+            value={quantity}
+            onChange={(e) => setQuantity(e.target.value)}
+            className="input input-bordered"
+            placeholder="Enter the available quantity of the toy"
+            required
+          />
+        </div>
+        <div className="form-control">
+          <label htmlFor="description" className="label">
+            Description
+          </label>
+          <textarea
+            id="description"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="input input-bordered"
+            placeholder="Enter a detailed description of the toy"
+            rows="5"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" className="btn btn-primary w-full">
+          Add Toy
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export default AddToyPage;

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Tab1 from "./Tab1";
+import Tab2 from "./Tab2";
 
 function Tabs() {
   const [toggleState, setToggleState] = useState(1);
@@ -10,7 +11,8 @@ function Tabs() {
 
   return (
     <div>
-      <h3 className="text-center font-bold">Shop By Category</h3>
+        <p className="font-semibold text-blue-500 text-center">Choose your category</p>
+      <h3 className="text-center font-bold text-3xl mb-3">Shop By Category</h3>
       <div className="mt-5 container mx-auto">
         <div className="flex justify-center">
           <button
@@ -35,7 +37,7 @@ function Tabs() {
             }`}
             onClick={() => toggleTab(3)}
           >
-            Tab 3
+            Remoking Robot
           </button>
         </div>
 
@@ -60,8 +62,7 @@ function Tabs() {
             <h2 className="text-2xl font-bold">Dog Robot</h2>
             <hr className="my-4" />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente
-              voluptatum qui adipisci.
+              <Tab2></Tab2>
             </p>
           </div>
 
@@ -70,7 +71,7 @@ function Tabs() {
               toggleState === 3 ? "block" : "hidden"
             } bg-white rounded-lg p-4`}
           >
-            <h2 className="text-2xl font-bold">Content 3</h2>
+            <h2 className="text-2xl font-bold">Remoking Robot</h2>
             <hr className="my-4" />
             <p>
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos sed

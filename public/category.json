@@ -1,7 +1,7 @@
 [
    {
         "_id": "tab1",
-        "name": "Tab 1",
+        "name": "Tab_1",
         "toys": [
           {
             "_id": "toy1",
@@ -23,7 +23,7 @@
       },
       {
         "_id": "tab2",
-        "name": "Tab 2",
+        "name": "Tab_2",
         "toys": [
           {
             "_id": "toy3",
@@ -45,11 +45,11 @@
       },
       {
         "_id": "tab3",
-        "name": "Tab 3",
+        "name": "Tab_3",
         "toys": [
           {
             "_id": "toy5",
-            "picture": "toy5.jpg",
+            "picture": "https://i.ibb.co/jDcJLzf/513-Eu-F4-LRTL-AC-UL320-removebg-preview.png",
             "name": "Toy 5",
             "price": "$9.99",
             "rating": 3.7,
@@ -57,7 +57,7 @@
           },
           {
             "_id": "toy6",
-            "picture": "toy6.jpg",
+            "picture": "https://i.ibb.co/V94qJVN/images-1-removebg-preview.png",
             "name": "Toy 6",
             "price": "$34.99",
             "rating": 4.6,
