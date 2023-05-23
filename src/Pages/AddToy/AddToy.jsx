@@ -1,65 +1,16 @@
-// import { useState } from 'react';
-// import useTitle from '../hooks/useTitle';
-// import Swal from 'sweetalert2'
-
-// const AddToyPage = () => {
-//   useTitle('Add A Toy')
-//   const handleAddToy = event => {
-//     event.preventDefault();
-
-//     const form = event.target;
-
-//     const name = form.name.value;
-//     const pictureUrl = form.pictureUrl.value;
-//     const sellerName = form.sellerName.value;
-//     const sellerEmail = form.sellerEmail.value;
-//     const subCategory = form.subCategory.value;
-//     const price = form.price.value;
-//     const quantity = form.quantity.value;
-//     const description = form.description.value;
-
-//     const newToy = { name, sellerName, sellerEmail, subCategory, price, quantity, description, pictureUrl }
-//     console.log(newToy)
-
-//     //send data to the server
-//     fetch('http://localhost:5000/toy', {
-//       method: 'POST',
-//       headers: {
-//         'content-type': 'application/json'
-//       },
-//       body: JSON.stringify(newToy)
-//     })
-//       .then(res => res.json())
-//       .then(data => {
-//         console.log(data);
-//         if(data.insertedId){
-//           Swal.fire({
-//             title: 'Success!',
-//             text: 'Added successfully',
-//             icon: 'success',
-//             confirmButtonText: 'Cool'
-//           })
-//         }
-//       })
-//   }
-//   const [pictureUrl, setPictureUrl] = useState('');
-//   const [name, setName] = useState('');
-//   const [sellerName, setSellerName] = useState('');
-//   const [sellerEmail, setSellerEmail] = useState('');
-//   const [subCategory, setSubCategory] = useState('');
-//   const [price, setPrice] = useState('');
-//   const [rating, setRating] = useState('0');
-//   const [quantity, setQuantity] = useState('');
-//   const [description, setDescription] = useState('');
-
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
+import Swal from 'sweetalert2';
+
 
 import { AuthContext } from '../providers/AuthProvider';
+import useTitle from '../hooks/useTitle';
  
 const AddToy = () => {
+  useTitle('Add Toy')
   const { user } = useContext(AuthContext);
   const { register, handleSubmit, formState: { errors } } = useForm();
+
   const onSubmit = data => {
     fetch('http://localhost:5000/addtoy', {
       method: 'POST',
@@ -70,10 +21,27 @@ const AddToy = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
+        console.log(data);
+        // Show SweetAlert success message
+        Swal.fire({
+          icon: 'success',
+          title: 'Toy Added',
+          text: 'The toy has been successfully added!',
+          confirmButtonText: 'OK'
+        });
       })
-    console.log(data)
+      .catch(error => {
+        console.error(error);
+        // Show SweetAlert error message
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'An error occurred while adding the toy.',
+          confirmButtonText: 'OK'
+        });
+      });
   };
+  
 
   return (
     <div className="max-w-md mx-auto bg-violet-300 p-5 rounded mb-5">
@@ -87,8 +55,6 @@ const AddToy = () => {
           <input
             type="text"
             id="pictureUrl"
-            // value={pictureUrl}
-            // onChange={(e) => setPictureUrl(e.target.value)}
             className="input input-bordered"
             {...register("image")}
             placeholder="Enter the picture URL of the toy"
@@ -102,8 +68,6 @@ const AddToy = () => {
           <input
             type="text"
             id="name"
-            // value={toyname}
-            // onChange={(e) => setName(e.target.value)}
             className="input input-bordered"
             {...register('toyname')}
             placeholder="Enter the name of the toy"
@@ -117,8 +81,6 @@ const AddToy = () => {
           <input
             type="text"
             id="sellerName"
-            // value={sellerName}
-            // onChange={(e) => setSellerName(e.target.value)}
             className="input input-bordered"
             {...register("sellername", { required: true })}
             placeholder="Enter the seller name"
@@ -131,8 +93,7 @@ const AddToy = () => {
           <input
             type="email"
             id="sellerEmail"
-            value={user?.email}
-            // onChange={(e) => setSellerEmail(e.target.value)}
+            value={user?.email || ''}
             className="input input-bordered"
             {...register("sellerEmail")}
             placeholder="Enter the seller email"
@@ -146,8 +107,6 @@ const AddToy = () => {
           <input
             type="text"
             id="subCategory"
-            // value={subCategory}
-            // onChange={(e) => setSubCategory(e.target.value)}
             {...register("subcategory")}
             className="input input-bordered"
             placeholder="Enter the sub-category of the toy"
@@ -161,8 +120,6 @@ const AddToy = () => {
           <input
             type="number"
             id="price"
-            // value={price}
-            // onChange={(e) => setPrice(e.target.value)}
             className="input input-bordered"
             {...register("price", { required: true })}
             placeholder="Enter the price of the toy"
@@ -176,8 +133,6 @@ const AddToy = () => {
           <input
             type="number"
             id="rating"
-            // value={rating}
-            // onChange={(e) => setRating(e.target.value)}
             className="input input-bordered"
             {...register("rating")}
             placeholder="Enter the rating of the toy"
@@ -191,8 +146,6 @@ const AddToy = () => {
           <input
             type="number"
             id="quantity"
-            // value={quantity}
-            // onChange={(e) => setQuantity(e.target.value)}
             className="input input-bordered"
             {...register("quantity")}
             placeholder="Enter the available quantity of the toy"
@@ -205,8 +158,6 @@ const AddToy = () => {
           </label>
           <textarea
             id="description"
-            // value={description}
-            // onChange={(e) => setDescription(e.target.value)}
             className="input input-bordered"
             {...register("description")}
             placeholder="Enter a detailed description of the toy"
