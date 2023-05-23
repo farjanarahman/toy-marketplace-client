@@ -1,4 +1,4 @@
-import banner from '../../../assets/images/Real_banner.png'
+import banner from '../../../../assets/images/Real_banner.png'
 import './Banner.css'
 
 const Banner = () => {
