@@ -1,5 +1,5 @@
 import React from 'react';
-import GallerySection from '../Gallery/Gallery';
+import GallerySection from '../Pages/Home/Gallery/Gallery';
 
 const Best = () => {
     return (
