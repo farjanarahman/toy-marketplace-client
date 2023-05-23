@@ -29,7 +29,7 @@ const Navbar = () => {
           <li className="font-semibold"><Link to="/allToy">All Toys</Link></li>
           <li className="font-semibold"><Link to='/blog'>Blogs</Link></li>
           <Link to='/login'>
-            <button className="btn btn-info">Login</button>
+            <button className="btn btn-info flex justify-end">Login</button>
           </Link>
 
         </>

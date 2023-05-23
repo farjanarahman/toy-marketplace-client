@@ -31,7 +31,7 @@ const RegisterForm = () => {
     }
 
     return (
-        <div className="max-w-md mx-auto">
+        <div className="max-w-md mx-auto bg-violet-300 rounded p-5">
             <h2 className="text-center text-2xl font-bold mb-4">Please Register</h2>
             <form onSubmit={handleRegister} className="space-y-4">
                 <div className="form-control">
@@ -92,7 +92,7 @@ const RegisterForm = () => {
                 <div className="form-control mt-5">
                 <label className="label cursor-pointer">
                     <span className="label-text ">Accept Terms and Conditions</span>
-                    <input type="checkbox"  className="checkbox checkbox-accent" />
+                    <input type="checkbox"  className="checkbox checkbox-primary" />
                 </label>
             </div>
                 <button type="submit" className="btn btn-primary w-full">
@@ -100,7 +100,7 @@ const RegisterForm = () => {
                 </button>
             </form>
         
-            <p className='text-center mt-5'>Already have an account? <Link to='/login' className='text-blue-700'>Login</Link></p>
+            <p className='text-center mt-5  mb-5'>Already have an account? <Link to='/login' className='text-blue-700'>Login</Link></p>
         </div>
     );
 };
