@@ -10,8 +10,8 @@ function Tabs() {
 
   return (
     <div>
-      <p className="font-semibold text-blue-500 text-center">Choose your category</p>
-      <h3 className="text-center font-bold text-3xl mb-3">Shop By Category</h3>
+      <p className="font-semibold text-blue-500 text-center">Shop By</p>
+      <h3 className="text-center font-bold text-3xl mb-3">Category</h3>
       <div className="mt-5 container mx-auto">
         <div className="flex justify-center">
           <button

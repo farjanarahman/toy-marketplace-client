@@ -1,6 +1,7 @@
 import Banner from './Banner/Banner';
 import GallerySection from './Gallery/Gallery';
-import Category from '../../../Category/Category';
+import Category from './Category/Category'
+
 import useTitle from '../../../hooks/useTitle';
 import Best from '../../../BestSelling/Best';
 
@@ -11,7 +12,7 @@ const Home = () => {
         <div>
             <Banner />
             <GallerySection />
-            <Category />
+            <Category></Category>
             <Best></Best>
         </div>
     );

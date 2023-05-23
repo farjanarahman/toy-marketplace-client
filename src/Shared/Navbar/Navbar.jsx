@@ -19,7 +19,7 @@ const Navbar = () => {
       <li className="font-semibold"><Link to="/">Home</Link></li>
 
       {user?.email ? <>
-        <li><Link to="/addToy">Add A Toy</Link></li>
+        <li className="font-semibold"><Link to="/addToy">Add A Toy</Link></li>
         <li className="font-semibold"><Link to="/toys">All Toys</Link></li>
         <li className="font-semibold"><Link to="/mytoys">My Toys</Link></li>
         <li className="font-semibold"><Link to='/blog'>Blogs</Link></li>

@@ -3,7 +3,7 @@ import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
 import Login from '../Login/Login'
 import Register from "../Login/Register";
-import AddToyPage from "../AddToy/AddToy";
+import AddToy from "../AddToy/AddToy";
 import SingleToy from "../Toy/Toy";
 import Blog from "../Blogs/Blogs";
 import ErrorPage from "../ErrorPage/ErrorPage";
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/addToy',
-        element: <PrivateRoute><AddToyPage></AddToyPage></PrivateRoute>
+        element: <PrivateRoute><AddToy></AddToy></PrivateRoute>
       },
       {
         path: '/allToys',
