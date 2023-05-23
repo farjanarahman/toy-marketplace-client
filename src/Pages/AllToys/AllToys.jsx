@@ -48,7 +48,7 @@ const AllToys = () => {
                         <tr key={toy?._id}>
                             <th>{toy?.sellername}</th>
                             <td>{toy?.toyname}</td>
-                            <td>{toy?.category}</td>
+                            <td>{toy?.subcategory}</td>
                             <td>{toy?.price}</td>
                             <td>{toy?.quantity}</td>
                             <td>{console.log(toy._id)}
