@@ -1,14 +1,14 @@
 import { createBrowserRouter } from "react-router-dom"
 import Main from "../Layout/Main";
 import Home from "../Pages/Home/Home/Home";
-import Login from '../Login/Login'
-import Register from "../Login/Register";
-import AddToy from "../AddToy/AddToy";
+import Login from '../Pages/Login/Login'
+import Register from "../Pages/Login/Register";
+import AddToy from "../Pages/AddToy/AddToy";
 import SingleToy from "../Toy/Toy";
 import Blog from "../Blogs/Blogs";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
-import AllToys from "../AllToys/AllToys";
+import AllToys from "../Pages/AllToys/AllToys";
 import MyToys from "../MyToys/MyToys";
 import UpdateToys from "../updateToys/UpdateToys";
 

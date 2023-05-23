@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import Swal from 'sweetalert2';
 
 
-import { AuthContext } from '../providers/AuthProvider';
-import useTitle from '../hooks/useTitle';
+import useTitle from '../../hooks/useTitle';
+import { AuthContext } from '../../providers/AuthProvider';
  
 const AddToy = () => {
   useTitle('Add Toy')

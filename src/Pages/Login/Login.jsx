@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../providers/AuthProvider';
-import useTitle from '../hooks/useTitle';
-import app from '../firebase/firebase.config';
+import { AuthContext } from '../../providers/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { FaGoogle } from "react-icons/fa";
+import app from '../../firebase/firebase.config';
 
 const LoginForm = () => {
     const { signIn } = useContext(AuthContext);

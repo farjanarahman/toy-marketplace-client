@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
-import { AuthContext } from '../providers/AuthProvider';
-import useTitle from '../hooks/useTitle';
+import useTitle from '../../hooks/useTitle';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 
 
