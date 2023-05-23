@@ -4,10 +4,14 @@ import Home from "../Pages/Home/Home/Home";
 import Login from '../Login/Login'
 import Register from "../Login/Register";
 import AddToyPage from "../AddToy/AddToy";
+import SingleToy from "../Toy/Toy";
 import Blog from "../Blogs/Blogs";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
-import SingleToy from "../Toy/Toy";
+import AllToys from "../AllToys/AllToys";
+import MyToys from "../MyToys/MyToys";
+import UpdateToys from "../updateToys/UpdateToys";
+
 
 const router = createBrowserRouter([
   {
@@ -20,11 +24,6 @@ const router = createBrowserRouter([
         element: <Home></Home>
       },
       {
-        path: '/toys/:id',
-        element: <PrivateRoute><SingleToy></SingleToy></PrivateRoute>,
-        loader: ({params}) => fetch(`https://assignment-11-alpha.vercel.app/toys/${params.id}`)
-      },
-      {
         path: "/login",
         element: <Login></Login>
       },
@@ -34,7 +33,25 @@ const router = createBrowserRouter([
       },
       {
         path: '/addToy',
-        element: <AddToyPage></AddToyPage>
+        element: <PrivateRoute><AddToyPage></AddToyPage></PrivateRoute>
+      },
+      {
+        path: '/allToys',
+        element: <AllToys></AllToys>
+      },
+      {
+        path: '/toys/:id',
+        element: <PrivateRoute><SingleToy></SingleToy></PrivateRoute>,
+        loader: ({ params }) => fetch(`http://localhost:5000/alltoys/${params.id}`)
+      },
+      {
+        path: '/myToys',
+        element: <PrivateRoute><MyToys></MyToys></PrivateRoute>
+      },
+      {
+        path: "updatetoys/:id",
+        element: <UpdateToys></UpdateToys>,
+        loader: ({ params }) => fetch(`http://localhost:5000/alltoys/${params.id}`)
       },
       {
         path: '/blog',

@@ -48,7 +48,7 @@ const AddToyPage = () => {
   const [sellerEmail, setSellerEmail] = useState('');
   const [subCategory, setSubCategory] = useState('');
   const [price, setPrice] = useState('');
-  const [rating, setRating] = useState('');
+  const [rating, setRating] = useState('0');
   const [quantity, setQuantity] = useState('');
   const [description, setDescription] = useState('');
 

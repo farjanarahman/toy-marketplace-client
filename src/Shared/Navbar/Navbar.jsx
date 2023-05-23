@@ -1,25 +1,40 @@
 import { Link } from "react-router-dom";
-import logo from '../../assets/Logo.svg';
 import { useContext } from "react";
-import { FaUserCircle } from "react-icons/fa";
 import { AuthContext } from "../../providers/AuthProvider";
+import './Navbar.css'
 
 const Navbar = () => {
-  const { user, logout } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
   const handleLogout = () => {
-    logout()
-      .then()
-      .catch(error => console.log(error));
-  };
+    logOut()
+      .then(() => {
+
+      })
+      .catch(error => console.log(error))
+  }
 
   const navItems = (
     <>
       <li className="font-semibold"><Link to="/">Home</Link></li>
-      <li className="font-semibold"><Link to="/toys">All Toys</Link></li>
-      <li className="font-semibold"><Link to="/mytoys">My Toys</Link></li>
-      <li className="font-semibold"><Link to='/addToy'>Add A Toy</Link></li>
-      <li className="font-semibold"><Link to='/blog'>Blogs</Link></li>
+
+      {user?.email ? <>
+        <li><Link to="/addToy">Add A Toy</Link></li>
+        <li className="font-semibold"><Link to="/toys">All Toys</Link></li>
+        <li className="font-semibold"><Link to="/mytoys">My Toys</Link></li>
+        <li className="font-semibold"><Link to='/blog'>Blogs</Link></li>
+        <li><button className="btn btn-info" onClick={handleLogout}>Log out</button></li>
+      </>
+        : <>
+          <li className="font-semibold"><Link to="/allToy">All Toys</Link></li>
+          <li className="font-semibold"><Link to='/blog'>Blogs</Link></li>
+          <Link to='/login'>
+            <button className="btn btn-info">Login</button>
+          </Link>
+
+        </>
+      }
+
     </>
   );
 
@@ -37,10 +52,11 @@ const Navbar = () => {
           </ul>
         </div>
         {/* Logo and Name */}
-        <h3 className="text-orange-600 font-bold">RoboPlayground</h3>
         <Link to="/" className="btn btn-ghost normal-case text-xl">
-          <img src={logo} alt="" />
+          <img className="navbar-logo" src='https://i.ibb.co/T2Kf6SY/charley-countdown-2.png' alt="" />
         </Link>
+        <h3 className="navbar-title">RoboPlayground</h3>
+
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
@@ -48,17 +64,10 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        {user && <FaUserCircle style={{ fontSize: '2rem' }} />}
-        {user ? (
-          <>
-            {/* <Link href="#deets" className="text-white">{user.displayName}</Link> */}
-            <button onClick={handleLogout} className="btn btn-info">Logout</button>
-          </>
-        ) : (
-          <Link to='/'>
-            <button className="btn btn-info">Login</button>
-          </Link>
-        )}
+        {
+          user?.photoURL ? <img style={{ width: '50px', marginRight: "15px", borderRadius: '50%' }} src={user.photoURL} alt="" /> : <></>
+
+        }
       </div>
     </div>
   );

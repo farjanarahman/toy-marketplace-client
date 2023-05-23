@@ -89,16 +89,17 @@ const RegisterForm = () => {
                         id="photo"
                         placeholder='Photo URL' />
                 </div>
-                <button type="submit" className="btn btn-primary w-full">
-                    Register
-                </button>
-            </form>
-            <div className="form-control mt-5">
+                <div className="form-control mt-5">
                 <label className="label cursor-pointer">
                     <span className="label-text ">Accept Terms and Conditions</span>
                     <input type="checkbox"  className="checkbox checkbox-accent" />
                 </label>
             </div>
+                <button type="submit" className="btn btn-primary w-full">
+                    Register
+                </button>
+            </form>
+        
             <p className='text-center mt-5'>Already have an account? <Link to='/login' className='text-blue-700'>Login</Link></p>
         </div>
     );
