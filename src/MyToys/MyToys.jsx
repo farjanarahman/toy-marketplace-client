@@ -47,9 +47,9 @@ const MyToys = () => {
                 <tbody>
                     {toys.map(toy =>
                         <tr className='bg-blue-300' key={toy?._id}>
-                            <th>{toy?.postedBy}</th>
+                            <th>{toy?.sellerEmail}</th>
                             <td>{toy?.toyname}</td>
-                            <td>{toy?.category}</td>
+                            <td>{toy?.subcategory}</td>
                             <td>{toy?.price}</td>
                             <td>{toy?.quantity}</td>
                             <td>
